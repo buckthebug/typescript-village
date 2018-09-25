@@ -1,0 +1,9 @@
+.idea/
+.scannerwork/
+.env
+node_modules/
+coverage/
+tests/junit.xml
+junit.xml
+dist/
+yarn-error.log
