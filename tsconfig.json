@@ -1,10 +1,17 @@
 {
   "compilerOptions": {
+    "target": "ES5",
     "module": "commonjs",
-    "target": "es5",
-    "sourceMap": true
+    "noImplicitAny": true,
+    "outDir": "output",
+    "declaration": true,
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "strictNullChecks": false
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "output"
   ]
 }

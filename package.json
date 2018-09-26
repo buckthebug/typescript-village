@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "build": "tsc",
     "test": "cross-env JEST_JUNIT_OUTPUT=.jest/app/junit.xml jest tests",
     "test:bail": "yarn test --bail",
     "test:watch": "yarn test --watch",
