@@ -6,7 +6,7 @@
         <option value="master" />
         <option value="production" />
         <option value="develop" />
-        <option value="release-" />
+        <option value="release-.*" />
       </list>
     </option>
   </component>
