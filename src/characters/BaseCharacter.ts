@@ -28,3 +28,4 @@ export abstract class BaseCharacter {
     private healthValue : number;
     private isAliveValue : boolean;
 }
+

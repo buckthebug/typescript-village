@@ -3,6 +3,8 @@ import {} from 'jest';
 import {Man} from "../src/characters/Man";
 import {Woman} from "../src/characters/Woman";
 import {Warrior} from "../src/characters/Warrior";
+import {CharacterFactory} from "../src/characters/CharacterFactory";
+import {BaseCharacter} from "../src/characters/BaseCharacter";
 
 describe('Creating characters inherited directly from BaseCharacter', () => {
 
@@ -10,36 +12,32 @@ describe('Creating characters inherited directly from BaseCharacter', () => {
         const initHealth = 20;
 
         const man = new Man(initHealth);
-        expect(man).not.toBeNull();
-        expect(man.health).toBe(initHealth);
-        expect(man.isAlive).toBe(true);
+
+        commonCharacterAssert(man, initHealth, true);
     })
 
     test('Create a vital woman', () => {
         const initHealth = 10;
 
         const woman = new Woman(initHealth);
-        expect(woman).not.toBeNull();
-        expect(woman.health).toBe(initHealth);
-        expect(woman.isAlive).toBe(true);
+
+        commonCharacterAssert(woman, initHealth, true);
     })
 
     test('Create a vital warrior', () => {
         const initHealth = 30;
 
         const warrior = new Warrior(initHealth);
-        expect(warrior).not.toBeNull();
-        expect(warrior.health).toBe(initHealth);
-        expect(warrior.isAlive).toBe(true);
+
+        commonCharacterAssert(warrior, initHealth, true);
     })
 
     test('Create a character with 0 points', () => {
         const initHealth = 0;
 
-        const firstMan = new Man(initHealth);
-        expect(firstMan).not.toBeNull();
-        expect(firstMan.health).toBe(initHealth);
-        expect(firstMan.isAlive).toBe(false);
+        const man = new Man(initHealth);
+
+        commonCharacterAssert(man, initHealth, false);
     })
 
     test('Create a character with negative value of points - it means he`s dead', () => {
@@ -47,12 +45,28 @@ describe('Creating characters inherited directly from BaseCharacter', () => {
 
         // TODO: It shouldn't work, but for now it's OK.
 
-        const firstMan = new Man(initHealth);
-        expect(firstMan).not.toBeNull();
-        expect(firstMan.health).toBe(initHealth);
-        expect(firstMan.isAlive).toBe(false);
+        const man = new Man(initHealth);
+
+        commonCharacterAssert(man, initHealth, false);
     })
 
-})
+});
 
+describe('Creating characters with Factory', () => {
 
+    test('Create a mean with explicitly defined health points', ()=> {
+        const initHealth = 25;
+
+        const man = CharacterFactory.create(Man,initHealth);
+
+        commonCharacterAssert(man, initHealth, true);
+
+    })
+
+});
+
+function commonCharacterAssert(character:BaseCharacter, expectedHealth:number, expectedIsAlive:boolean) {
+    expect(character).not.toBeNull();
+    expect(character.health).toBe(expectedHealth);
+    expect(character.isAlive).toBe(expectedIsAlive);
+}
