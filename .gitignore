@@ -2,6 +2,7 @@
 .scannerwork/
 .env
 node_modules/
+output/
 coverage/
 tests/junit.xml
 junit.xml
