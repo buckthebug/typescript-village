@@ -6,6 +6,9 @@ import {Warrior} from "../src/characters/Warrior";
 import {CharacterFactory} from "../src/characters/CharacterFactory";
 import {BaseCharacter} from "../src/characters/BaseCharacter";
 
+import * as applicationConfig from '../data/config.json';
+import {TestCharacter} from "./TestCharacter";
+
 describe('Creating characters inherited directly from BaseCharacter', () => {
 
     test('Create a vital man', () => {
@@ -54,13 +57,44 @@ describe('Creating characters inherited directly from BaseCharacter', () => {
 
 describe('Creating characters with Factory', () => {
 
-    test('Create a mean with explicitly defined health points', ()=> {
+    test('Create a man with explicitly defined health points', ()=> {
         const initHealth = 25;
 
         const man = CharacterFactory.create(Man,initHealth);
 
         commonCharacterAssert(man, initHealth, true);
+    });
 
+    test('Create a new character (inherited outside characters) with explicitly defined health points', ()=> {
+        const expectedHealth = 5;
+
+        const testCharacter = CharacterFactory.create(TestCharacter, expectedHealth);
+
+        commonCharacterAssert(testCharacter, expectedHealth, true);
+    })
+
+
+    test('Create a man with health points from config', ()=> {
+        const expectedHealth = applicationConfig.characters.man.health;
+
+        const man = CharacterFactory.create(Man);
+
+        commonCharacterAssert(man, expectedHealth, true);
+    });
+
+    test('Create a warrior with health points from config', ()=> {
+        const expectedHealth = applicationConfig.characters.warrior.health;
+
+        const warrior = CharacterFactory.create(Warrior);
+
+        commonCharacterAssert(warrior, expectedHealth, true);
+    })
+
+    test('Create a character without health points and not defined in config', ()=> {
+
+        expect(() =>
+            CharacterFactory.create(TestCharacter)
+        ).toThrow();
     })
 
 });
