@@ -13,7 +13,8 @@ export class Population {
     }
 
     public get allCharacters() : Array<BaseCharacter> {
-        // TODO: it should be a copy of the array and Add/Remove shoudl be done by events
+        // TODO: 1) It should be a copy of the array (is there same issue as in .NET/JAVA with iterating of collections?)
+        // TODO: 2) Add/Remove should be done by events
         return this.listOfCharacters;
     }
 
@@ -34,5 +35,12 @@ export class Population {
 
     public annihilate() {
         this.listOfCharacters = [];
+    }
+
+    public shuffle(): void {
+        // FIXME: It's the easiest way but not really random
+        // see: https://jsperf.com/array-shuffle-comparator/5
+        // see: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+        this.listOfCharacters.sort((a, b) => 0.5 - Math.random());
     }
 }
