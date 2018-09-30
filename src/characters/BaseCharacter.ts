@@ -1,8 +1,10 @@
+import uuid = require("uuid");
+
 export abstract class BaseCharacter {
 
     protected constructor(health:number) {
         this.health = health;
-        this.nameValue = Date.now().toString();
+        this.nameValue = uuid();
     }
 
 

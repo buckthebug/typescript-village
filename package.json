@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "@types/jest": "^23.3.2",
+    "@types/uuid": "^3.4.4",
     "jest": "^23.6.0",
     "jest-junit": "^5.1.0",
     "ts-jest": "^23.10.1",
@@ -40,5 +41,8 @@
       "cobertura"
     ],
     "verbose": true
+  },
+  "dependencies": {
+    "uuid": "^3.3.2"
   }
 }

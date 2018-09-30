@@ -20,6 +20,16 @@
   version "23.3.2"
   resolved "https://artifacts.merck.com:443/artifactory/api/npm/npm-main/@types/jest/-/jest-23.3.2.tgz#07b90f6adf75d42c34230c026a2529e56c249dbb"
 
+"@types/node@*":
+  version "10.11.3"
+  resolved "https://artifacts.merck.com:443/artifactory/api/npm/npm-main/@types/node/-/node-10.11.3.tgz#c055536ac8a5e871701aa01914be5731539d01ee"
+
+"@types/uuid@^3.4.4":
+  version "3.4.4"
+  resolved "https://artifacts.merck.com:443/artifactory/api/npm/npm-main/@types/uuid/-/uuid-3.4.4.tgz#7af69360fa65ef0decb41fd150bf4ca5c0cefdf5"
+  dependencies:
+    "@types/node" "*"
+
 abab@^2.0.0:
   version "2.0.0"
   resolved "https://artifacts.merck.com:443/artifactory/api/npm/npm-main/abab/-/abab-2.0.0.tgz#aba0ab4c5eee2d4c79d3487d85450fb2376ebb0f"

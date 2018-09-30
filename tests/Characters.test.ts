@@ -99,7 +99,7 @@ describe('Creating characters with Factory', () => {
 
 });
 
-function commonCharacterAssert(character:BaseCharacter, expectedHealth:number, expectedIsAlive:boolean) {
+function commonCharacterAssert(character:BaseCharacter, expectedHealth:number, expectedIsAlive:boolean) : void {
     expect(character).not.toBeNull();
     expect(character.health).toBe(expectedHealth);
     expect(character.isAlive).toBe(expectedIsAlive);
