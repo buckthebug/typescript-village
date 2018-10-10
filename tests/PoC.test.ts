@@ -3,6 +3,9 @@ import {} from 'jest';
 
 import * as applicationConfig from '../data/config.json';
 import {Man} from "../src/characters/Man";
+import {CharacterFactory} from "../src/characters/CharacterFactory";
+import {BaseCharacter} from "../src/characters/BaseCharacter";
+import {Woman} from "../src/characters/Woman";
 
 test('Access property dynamically', ()=> {
     console.log(applicationConfig.characters['man'].health);
@@ -42,3 +45,20 @@ test('Get class name of variable', ()=> {
     console.log(typeof character)
 });
 
+
+test('Map of types', ()=> {
+    var m = new Map<any, number>();
+
+    m.set(Man, 3);
+    //m.set(String, 9);
+    m.set(BaseCharacter, 15);
+
+    m.forEach((value, key)=> {
+        console.log(key instanceof BaseCharacter)
+        console.log(typeof key)
+        console.log(`m[${key}] = ${value}`);
+        var a = CharacterFactory.create(key, value);
+        console.log(a.name);
+    })
+
+});

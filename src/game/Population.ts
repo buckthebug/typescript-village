@@ -1,3 +1,4 @@
+///<reference path="../../node_modules/@types/uuid/interfaces.d.ts"/>
 import {BaseCharacter} from "../characters/BaseCharacter";
 
 export class Population {
@@ -41,6 +42,9 @@ export class Population {
         // FIXME: It's the easiest way but not really random
         // see: https://jsperf.com/array-shuffle-comparator/5
         // see: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-        this.listOfCharacters.sort((a, b) => 0.5 - Math.random());
+        this.listOfCharacters.sort(() : number => {
+            // noinspection TypeScriptValidateJSTypes
+            return 0.5 - Math.random();
+        });
     }
 }

@@ -1,12 +1,12 @@
 // @ts-ignore
 import {} from 'jest';
-import {Man} from "../src/characters/Man";
-import {Woman} from "../src/characters/Woman";
-import {Warrior} from "../src/characters/Warrior";
-import {CharacterFactory} from "../src/characters/CharacterFactory";
-import {BaseCharacter} from "../src/characters/BaseCharacter";
+import {Man} from "../../src/characters/Man";
+import {Woman} from "../../src/characters/Woman";
+import {Warrior} from "../../src/characters/Warrior";
+import {CharacterFactory} from "../../src/characters/CharacterFactory";
+import {BaseCharacter} from "../../src/characters/BaseCharacter";
 
-import * as applicationConfig from '../data/config.json';
+import * as applicationConfig from '../../data/config.json';
 import {TestCharacter} from "./TestCharacter";
 
 describe('Creating characters inherited directly from BaseCharacter', () => {

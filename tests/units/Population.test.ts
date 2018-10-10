@@ -1,10 +1,10 @@
 // @ts-ignore
 import {} from 'jest';
-import {Population} from "../src/game/Population";
-import {CharacterFactory} from "../src/characters/CharacterFactory";
-import {Man} from "../src/characters/Man";
-import {Woman} from "../src/characters/Woman";
-import {Warrior} from "../src/characters/Warrior";
+import {Population} from "../../src/game/Population";
+import {CharacterFactory} from "../../src/characters/CharacterFactory";
+import {Man} from "../../src/characters/Man";
+import {Woman} from "../../src/characters/Woman";
+import {Warrior} from "../../src/characters/Warrior";
 
 describe('Basic operations with Population', () => {
 
