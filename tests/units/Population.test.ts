@@ -9,7 +9,7 @@ import {Warrior} from "../../src/characters/Warrior";
 describe('Basic operations with Population', () => {
 
     test('Create a new population', () => {
-       const population = new Population();
+        const population = new Population();
 
         commonPopulationAsserts(population, 0);
     });
@@ -87,6 +87,33 @@ describe('Basic operations with Population', () => {
         console.log("IKN/I'm lazy - just try it debug :)")
         // TODO: Some meaningful assert
 
+    });
+
+    test('By type', () => {
+        const population = new Population();
+
+        // Arrange
+        const count = 5;
+        for (let i = 0; i < count; i++) {
+            const man = CharacterFactory.create(Man);
+            population.addCharacter(man);
+            const woman = CharacterFactory.create(Woman);
+            population.addCharacter(woman);
+            const warrior = CharacterFactory.create(Warrior);
+            population.addCharacter(warrior);
+        }
+
+        commonPopulationAsserts(population, count * 3);
+        expect(population.allCharacters[0]).toBeInstanceOf(Man);
+        expect(population.allCharacters[1]).toBeInstanceOf(Woman);
+        expect(population.allCharacters[2]).toBeInstanceOf(Warrior);
+
+        // Act
+        const men = population.getByType(Man);
+
+        // Assert
+        expect(men.length).toEqual(5);
+        expect(men[0]).toBeInstanceOf(Man);
     });
 
 });

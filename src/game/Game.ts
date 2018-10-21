@@ -5,7 +5,6 @@ import {CharacterFactory} from "../characters/CharacterFactory";
 
 export class Game {
 
-
     private initData: GameData;
 
     private populationValue:Population;
@@ -16,6 +15,26 @@ export class Game {
     private stateValue: GameState;
     get state() : GameState {
         return this.stateValue;
+    }
+
+    private countOfDaysValue: number;
+    get countOfDays() : number {
+        return this.countOfDaysValue;
+    }
+
+    private currentDayValue: number;
+    get currentDay() : number {
+        return this.currentDayValue;
+    }
+
+    private countOfActionsPerDayValue: number;
+    get countOfActionsPerDay() : number {
+        return this.countOfActionsPerDayValue;
+    }
+
+    private currentActionTodayValue: number;
+    get currentActionToday() : number {
+        return this.currentActionTodayValue;
     }
 
     constructor(data: GameData) {
@@ -29,8 +48,14 @@ export class Game {
 
 
     protected initialize() {
-        this.populationValue = new Population();
 
+        this.currentDayValue = 0;
+        this.currentActionTodayValue = 0;
+
+        this.countOfDaysValue = this.initData.countOfDays;
+        this.countOfActionsPerDayValue = this.initData.countOfActionsPerDay;
+
+        this.populationValue = new Population();
         this.initData.characterCount.forEach((count, type)=> {
             for (let i = 0; i < count; i++) {
                 try {

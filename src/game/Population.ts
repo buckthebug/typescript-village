@@ -1,6 +1,7 @@
 ///<reference path="../../node_modules/@types/uuid/interfaces.d.ts"/>
 import {BaseCharacter} from "../characters/BaseCharacter";
 
+
 export class Population {
 
     private listOfCharacters: Array<BaseCharacter>;
@@ -19,12 +20,16 @@ export class Population {
         return this.listOfCharacters;
     }
 
+    public getByType<T extends BaseCharacter>(typeT: new(...args: any[]) => T) : T[] {
+        return (this.listOfCharacters as any[]).filter(item => item instanceof typeT)
+    }
+
+
     public addCharacter(character:BaseCharacter) : void {
         const index = this.listOfCharacters.findIndex(ch => ch.name == character.name);
         if (index < 0) {
             this.listOfCharacters.push(character);
         }
-
     }
 
     public removeCharacter(character:BaseCharacter) : void {

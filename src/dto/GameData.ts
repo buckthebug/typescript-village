@@ -1,7 +1,9 @@
+import {BaseCharacter} from "../characters/BaseCharacter";
+
 export class GameData {
 
     constructor() {
-        this.characterCount = new Map<any, number>();
+        this.characterCount = new Map<new(healthParam:number) => BaseCharacter, number>();
     }
 
     get characterCount(): Map<any, number> {
@@ -28,7 +30,7 @@ export class GameData {
         this.actionsPerDayValue = value;
     }
 
-    private characterCountValue : Map<any, number>; //TODO: Can be type somehow limited?
+    private characterCountValue : Map<new(healthParam:number) => BaseCharacter, number>;
     private daysValue : number;
     private actionsPerDayValue : number;
 }

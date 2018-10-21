@@ -47,11 +47,11 @@ test('Get class name of variable', ()=> {
 
 
 test('Map of types', ()=> {
-    var m = new Map<any, number>();
+    var m = new Map<new(healthParam:number) => BaseCharacter, number>();
 
     m.set(Man, 3);
     //m.set(String, 9);
-    m.set(BaseCharacter, 15);
+    //m.set(BaseCharacter, 15);
 
     m.forEach((value, key)=> {
         console.log(key instanceof BaseCharacter)
